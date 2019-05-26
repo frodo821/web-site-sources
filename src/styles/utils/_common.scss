@@ -1,0 +1,52 @@
+html {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  color: $BLACK_COLOR;
+  font-family: Verdana, Helvetica, sans-serif;
+}
+
+@include mobile {
+  html {
+    --is-mobile: yes;
+  }
+}
+
+@include desktop {
+  html {
+    --is-mobile: no;
+  }
+
+  .App {
+    width: calc(100vw - #{$desktop-navigation-width} - 1.2rem);
+    overflow: hidden;
+  }
+}
+
+html {
+  background: $P_LIGHT_COLOR url("/background.jpg") fixed left top / cover no-repeat;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  min-height: calc(100vh - 5rem);
+}
+
+a {
+  color: $PRIMARY_COLOR;
+  &:visited {
+    color: adjust-hue(darken($PRIMARY_COLOR, 15%), -60deg);
+  }
+  &:hover {
+    color: adjust-hue(lighten($PRIMARY_COLOR, 15%), 180deg);
+  }
+}
+
+img.lefty {
+  float: left;
+  margin: 0.5rem;
+  position: relative;
+}

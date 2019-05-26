@@ -1,0 +1,37 @@
+@import "../utils";
+
+#section1 {
+  min-height: 15rem;
+}
+
+.artifact {
+  margin-left: 1rem;
+  position: relative;
+  margin-bottom: 2.5rem;
+
+  .learn-more {
+    border: solid 2px $SECONDARY_COLOR;
+    border-radius: 1px;
+    width: max-content;
+    padding: 0.2rem;
+    background: $PRIMARY_COLOR;
+    position: absolute;
+    right: 0.2rem;
+    bottom: -2.2rem;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      box-shadow: 2px 2px 2px 2px rgba($BLACK_COLOR, 0.8) inset;
+
+      a {
+        color: adjust-hue($S_LIGHT_COLOR, $degrees: 60deg);
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $S_LIGHT_COLOR;
+    }
+  }
+}

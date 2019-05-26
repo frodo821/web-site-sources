@@ -1,0 +1,32 @@
+h1, h2, h3, h4, h5, h6 {
+  width: 100%;
+  margin: 0.4rem 2px;
+  position: relative;
+
+  &::before {
+    content: "#";
+    margin-left: 0.2rem;
+    margin-right: 0.3rem;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    bottom: -4px;
+    background: #c0c0c0;
+    border-radius: 1px;
+  }
+
+  +p.legend {
+    font-family: serif;
+    font-weight: 700;
+    margin-left: 1.5rem;
+    &::before {
+      content: '―';
+      margin-right: 0.2rem;
+    }
+  }
+}

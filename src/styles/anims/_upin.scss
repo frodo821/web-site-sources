@@ -1,0 +1,17 @@
+.transition.up-in {
+  transition: 800ms;
+  transform: translateY(-10vh);
+  opacity: 0;
+  transition-timing-function: ease-in-out;
+  box-shadow: 30px 30px 10px 10px rgba($BLACK_COLOR, 0.5);
+
+  &.fade {
+    &-enter {
+      &-done {
+        transform: none;
+        box-shadow: none;
+        opacity: 1;
+      }
+    }
+  }
+}

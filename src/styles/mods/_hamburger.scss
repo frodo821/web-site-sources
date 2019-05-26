@@ -1,0 +1,143 @@
+.hamburger {
+  @include mobile {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    transform: translateY(-100%);
+  }
+
+  @include desktop {
+    width: $desktop-navigation-width;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    right: 0;
+  }
+
+  z-index: $Z-OVERLAY;
+
+  .wrapper {
+    @include desktop {
+      display: none;
+    }
+    .toggle {
+      display: none;
+
+      +label {
+        display: block;
+        width: 32px;
+        height: 32px;
+        background: $P_LIGHT_COLOR;
+        border-radius: 50%;
+
+        @include mobile {
+          position: relative;
+          bottom: -3rem;
+          left: calc(100vw - 0.4rem - 32px);
+          transition: 500ms;
+          transform: none;
+        }
+
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 1px 4px;
+
+          li {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: $S_LIGHT_COLOR;
+            margin-top: 6px;
+            transition: 500ms;
+
+            &:nth-child(n+4) {
+              display: none;
+            }
+          }
+        }
+      }
+
+      &:checked+label { 
+        ul {
+          li {
+            &:nth-child(1) {
+              transform: translateY(8px) rotateZ(45deg);
+            }
+            &:nth-child(2) {
+              opacity: 0;
+            }
+            &:nth-child(3) {
+              transform: translateY(-8px) rotateZ(-45deg);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .navigation {
+    display: block;
+    position: relative;
+    background: $WHITE_COLOR;
+    padding: 0.1rem 0 0.4rem 0.5rem;
+    width: 100%;
+    min-height: 100%;
+
+    @include mobile {
+      &.shown {
+        transform: none;
+      }
+    }
+
+    .menu-child {
+      border-bottom: 2px solid $PRIMARY_COLOR;
+      width: 80%;
+      margin: 0.3rem 0;
+      position: relative;
+
+      &::after {
+          content: "";
+          transition: 500ms;
+          position: absolute;
+          width: 0%;
+          height: 2px;
+          background: $SECONDARY_COLOR;
+          bottom: -2px;
+          left: 0;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .menu-group {
+      margin-top: 0.4rem;
+      >:not(legend) {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  @include mobile {
+    transition: 500ms;
+    &.shown {
+      transform: none;
+
+      .wrapper {
+        .toggle {
+          +label {
+            bottom: -0.4rem;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+      }
+    }
+  }
+}

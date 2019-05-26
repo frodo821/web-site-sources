@@ -1,0 +1,17 @@
+footer {
+  height: 5rem;
+  background: $BLACK_COLOR;
+  color: $WHITE_COLOR;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    margin: 0.2rem;
+
+    &.attribution {
+      font-size: 60%;
+    }
+  }
+}

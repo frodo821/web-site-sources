@@ -1,0 +1,17 @@
+.transition.left-in {
+  transition: 800ms;
+  transform: translateX(-120%);
+  opacity: 0;
+  transition-timing-function: ease-in-out;
+  box-shadow: 4px 4px 4px 4px rgba($BLACK_COLOR, 0.5);
+
+  &.fade {
+    &-enter {
+      &-done {
+        transform: none;
+        box-shadow: none;
+        opacity: 1;
+      }
+    }
+  }
+}
