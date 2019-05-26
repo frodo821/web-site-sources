@@ -40,6 +40,7 @@ class Page extends React.Component<Props, {content?: React.FC | LoadError}> {
     if(!title) return;
     document.title = (title.textContent || "ロード中...") +
       ((window.location.hash!=="#/" && ` | ${C.base_title}`) || '');
+    title.scrollIntoView({block: "end"});
   }
 
   render() {
