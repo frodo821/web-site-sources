@@ -19,8 +19,11 @@ html {
 
   .App {
     width: calc(100vw - #{$desktop-navigation-width} - 1.2rem);
-    overflow: hidden;
   }
+}
+
+.App {
+  overflow: hidden;
 }
 
 html {
