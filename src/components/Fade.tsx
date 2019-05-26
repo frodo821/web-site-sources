@@ -4,14 +4,14 @@ import { generateRandomStr } from '../utils';
 import '../styles/animation.scss';
 
 let observer = new IntersectionObserver(changes => {
-  changes.forEach((it, i) => {
+  let i = 0;
+  changes.forEach(it => {
     if(it.isIntersecting) {
       let target = targets[it.target.id];
-      target && setTimeout(()=>{target.started = true}, (i-1)*250 + 100);
+      target && setTimeout(()=>{target.started = true}, (i-1)*250);
+      i++;
     }
   });
-}, {
-  threshold: 0.6
 });
 
 let targets: {[key: string]: Fade} = {};
